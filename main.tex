@@ -4,18 +4,12 @@
 
 \title{Solutions to "Proofs" by Jay Cummings}
 \author{Jannes Kleinau}
-\date{October 2024}
+\date{November 2024}
 
 \begin{document}
 
 \maketitle
 \tableofcontents % Table of Contents
-
-\section{Introduction}
-\textbf{Solutions to some exercises}: \url{https://longformmath.com/proofs-hints-\%26-solutions} \\
-\textbf{errors}: \url{https://longformmath.com/proofs-errata} 
-
-\newpage % Start a new page for the content
 
 \section{Chapter 1: Intuitive Proofs}
 \subsection{Exercise 1.1.}
@@ -1104,7 +1098,12 @@ Thus, the square of any number ending in 5 will always end in 25, as required.
     
     \noindent If $n$ is even, by Definition 2.8, we can write $n = 2a+1$ for some integer $a$. Then,
 
-    \[3n^2+5n+1=3(2a+1)^2+5(2a+1)+1=3(4a^2+4a+1)+10a+5+1=12a^2+14a+7=2(6a^2+7a+3)+1\].
+    \begin{align*}
+        3n^2+5n+1&=3(2a+1)^2+5(2a+1)+1\\
+        &= 3(4a^2+4a+1)+10a+5+1 \\
+        &= 12a^2+14a+7 \\
+        &= 2(6a^2+7a+3)+1
+    \end{align*}
 
     And since, by Fact 2.1, $(6a^2+7a+3)+$ is an integer too, we have shown that $3n^2+5n+1=2k+1$, where $k=(6a^2+7a+3)+$ is an integer. Therefore, by Definition 2.2, this means that $3n^2+5n+1$ is odd. \\
 
@@ -1165,6 +1164,10 @@ Thus, the square of any number ending in 5 will always end in 25, as required.
 \textbf{Task:} Determine conditions on integers $m$ and $n$ for which $mn$ is even. Write down your conditions as a conjecture, and then prove that your conjecture is correct.
 
 \subsubsection*{Solution}
+
+\begin{conjecture}{}
+    If $m$ or $n$ is even (or both), then also $mn$ is even.
+\end{conjecture}
 
 \begin{proof}
     To prove this conjecture, we need to consider three cases:
@@ -1268,7 +1271,7 @@ Thus, the square of any number ending in 5 will always end in 25, as required.
     We have shown that \( n = 3s \), where \( s \) is an integer. Therefore, \( n = 3k \) for some integer \( k = s \), and by the definition of divisibility (Definition 2.8), this proves that \( 3 \mid n \).
 \end{proof}
 
-\noindent (e) There has to be another way (Use a theorem or lemma to solve it)
+\noindent (e)
 
 \begin{proof}
      Assume that \( 9 \mid 6n \). By Definition 2.8, this means that \( 6n = 9k \) for some integer \( k \). Dividing both sides of this equation by 3, we get: $2n=3k$, which means $3 \mid 2n$. As shown in Exercise 2.10. (d) $3 \mid 2n$ implies $3 \mid n$.
@@ -1345,7 +1348,21 @@ Thus, the square of any number ending in 5 will always end in 25, as required.
 
 \subsubsection*{Solution}
 
+\begin{proof}
 
+Assume that $m < n$. Thus,
+
+    \begin{align}
+        m &< n\\
+        m \cdot m &< n \cdot m  \\
+        m^2 &< n \cdot m < n \cdot n\\
+        m^2 &< n^2 
+    \end{align}
+
+    Observe, that in line (3) that $m < n$ implies that $n \cdot m < n \cdot n$. Hence, we have shown that if $m$ and $n$ are positive real numbers and $m < n$, then $m^2 < n^2$.
+\end{proof}
+
+\newpage
 
 \subsection{Exercise 2.13.}
 \textbf{Task:} Define the absolute value of a real number $x$ in this way:
@@ -1361,11 +1378,1029 @@ x & \text{if } x \geq 0, \\
 
 \subsubsection*{Solution}
 
+\begin{proof}
+    Assume that $x$ and $y$ are real numbers. To show that $|xy| = |x| \cdot |y|$, we consider the following cases: \\
 
+    \underline{Case 1: One of $x$ or $y$ is $\geq 0$, and the other is $< 0$.} \\
+
+    In this case, $xy < 0$, so $|xy| = -(xy)$. Since either $x < 0$ and $y \geq 0$, or $x \geq 0$ and $y < 0$. If for example $x < 0$ and $y \geq 0$, we get:
+    \[
+    |xy| = -(xy) = (-x) \cdot y = |x| \cdot |y|.
+    \]
+
+    \underline{Case 2: Both $x$ and $y$ are $\geq 0$.} \\
+
+    Here, $xy \geq 0$, so $|xy| = xy$. Thus,
+    \[
+    |xy| = xy = x \cdot y = |x| \cdot |y|.
+    \]
+
+    \underline{Case 3: Both $x$ and $y$ are $< 0$.} \\
+
+    In this case, $xy \geq 0$, and we have $|xy| = xy$. Since $x < 0$ and $y < 0$, we get:
+    \[
+    |xy| = xy = x \cdot y = |x| \cdot |y|.
+    \]
+
+    Therefore, we have shown that $|xy| = |x| \cdot |y|$ in all cases.
+
+\end{proof}
+
+\newpage
 
 \subsection{Exercise 2.14.}
 \textbf{Task:} Prove that if $m$, $n$ and $t$ are integers, then at least one of $m-n$, $n-t$ and $m-t$ is even. Also, before your proof, write down three examples of integers $m$, $n$ and $t$, and show which of $m-n$, $n-t$ and $m-t$ are even.
 
 \subsubsection*{Solution}
+
+\begin{proof}
+    We start by showing that the difference between two odd integers or two even integers is always an even number.
+
+    Assume that $m$ and $n$ are both odd integers. By Definition 2.2, this means that we can write $m = 2k + 1$ and $n = 2s + 1$ for some integers $k$ and $s$. Then,
+    \[
+    m - n = (2k + 1) - (2s + 1) = 2k - 2s = 2(k - s).
+    \]
+    Since $k - s$ is an integer, we have shown that $m - n = 2p$, where $p = k - s$ is also an integer. Therefore, by Definition 2.2, $m - n$ is even. The order of subtraction does not matter here, as swapping $k$ and $s$ would yield the same result.\\
+
+    Next, suppose that $x$ and $y$ are both even integers. By Definition 2.2, this means we can write $x = 2k$ and $y = 2s$ for some integers $k$ and $s$. Then,
+    \[
+    x - y = (2k) - (2s) = 2(k - s).
+    \]
+    Since $k - s$ is an integer, we have shown that $x - y = 2p$, where $p = k - s$ is also an integer. Therefore, by Definition 2.2, $x - y$ is even. Again, the order of subtraction does not affect the result.\\
+
+    With these facts, we can use the pigeonhole principle to complete the proof. Suppose we categorize integers into two types, "even" and "odd." Since any integer is either even or odd, placing the three integers $m$, $n$, and $t$ into these two categories means, by the pigeonhole principle, that at least two of the integers must have the same parity. The difference between any two integers of the same parity, as shown above, will always be even. Thus, we conclude that at least one of $m - n$, $n - t$, or $m - t$ is even.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.15.}
+\textbf{Task:} \\
+(a) Prove that if $n$ is a positive integer, then 4 divides $1+(-1)^n(2n-1)$.\\
+(b) Prove that every multiple of 4 is equal to $1+(-1)^n(2n-1)$ for some positive integer $n$.
+
+\subsubsection*{Solution}
+
+(a)
+
+\begin{proof}
+    To show this proposition, we consider the cases $n$ is even and $n$ is odd:
+
+    \underline{Case 1: $n$ is an even number.} \\
+    Assume that $n$ is an even number. By Definition 2.2, this means that we can write $n = 2k$ for some integer $k$. Then,
+
+    \begin{align*}
+        4k &= 4k \\
+        1 + (4k - 1) &= 4k.
+    \end{align*}
+
+    Since we showed in Exercise 2.4 that if $n$ is an even integer, then $(-1)^n = 1$, we can multiply by 1 on both sides of the equation:
+
+    \begin{align*}
+        1 + (-1)^n(4k - 1) &= 4k \\
+        1 + (-1)^n(2n - 1) &= 4k.
+    \end{align*}
+
+    We have shown that $1 + (-1)^n(2n - 1) = 4k$, where $k$ is an integer. Therefore, $1 + (-1)^n(2n - 1) = 4p$ for some integer $p = k$, and by the definition of divisibility (Definition 2.8), this proves that $4 \mid 1 + (-1)^n(2n - 1)$.\\
+
+    \underline{Case 2: $n$ is an odd number.} \\
+    Assume that $n$ is an odd number. By Definition 2.2, this means that we can write $n = 2k + 1$ for some integer $k$. For this case, we define an integer $m = -k$. Then,
+
+    \begin{align*}
+        4k &= -4m \\
+        1 + (-4k - 1) &= -4m \\
+        1 + (-4k - 2 + 1) &= 4(-m) \\
+        1 + (-2n + 1) &= 4(-m).
+    \end{align*}
+
+    Since we showed in Exercise 2.4 that if $n$ is an odd integer, then $(-1)^n = -1$, we can rewrite $(-2n + 1)$ as $-1(2n - 1)$:
+
+    \begin{align*}
+        1 + (-1)^n(2n - 1) &= 4(-m).
+    \end{align*}
+
+    We have shown that $1 + (-1)^n(2n - 1) = 4(-m)$, where $(-m)$ is an integer. Therefore, $1 + (-1)^n(2n - 1) = 4p$ for some integer $p = (-m)$, and by the definition of divisibility (Definition 2.8), this proves that $4 \mid 1 + (-1)^n(2n - 1)$.\\
+
+    Therefore, we have shown that $4 \mid 1 + (-1)^n(2n - 1)$ in all cases. 
+\end{proof}
+
+\noindent (b)
+
+\begin{proof} Consider an arbitrary multiple of 4, which we write as $4k$ for some integer $k$. We proceed by considering the two cases, $k > 0$ and $k \leq 0$.\\
+    
+     \underline{Case 1: $k > 0$} \\
+    For this case, let $n = 2k$. Then, observe that:
+    \[
+    1 + (-1)^n(2n - 1) = 1 + (-1)^{2k}(2(2k) - 1) = 1 + (4k - 1) = 4k.
+    \]
+    Thus, we have found a positive integer $n = 2k$ for which $1 + (-1)^n(2n - 1) = 4k$, matching our arbitrary multiple of 4.\\
+    
+    \underline{Case 2: $k \leq 0$} \\
+    For this case, let $n = -2k + 1$, which is positive since $k$ is non-positive. Then we observe:
+    \[
+    1 + (-1)^n(2n - 1) = 1 + (-1)^{-2k+1}(2(-2k + 1) - 1) = 1 - (4k - 1) = 4k.
+    \]
+    So here, we have also found a positive integer $n = -2k + 1$ for which $1 + (-1)^n(2n - 1) = 4k$.
+    
+    In either case, we have shown that for any multiple of 4, there exists a positive integer $n$ such that $1 + (-1)^n(2n - 1)$ equals this multiple. This completes the proof.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.16.}
+\textbf{Task:} For each pair of integers, find the unique quotient and remainder when $a$ is divided by $m$.\\
+
+\begin{center}
+    \begin{tabular}{ccc}
+        (a) $a = 15$, $m = 4$ & (c) $a = -7$, $m = 3$ & (e) $a = -1$, $m = 15$ \\
+        (b) $a = 4$, $m = 15$ & (d) $a = 65$, $m = 11$ & (f) $a = 0$, $m = 4$ \\
+    \end{tabular}
+\end{center}
+
+\subsubsection*{Solution}
+
+(a) unique quotient: 3, remainder: 3, because $15=3 \cdot 4+3$\\
+(b) unique quotient: 0, remainder: 4, because $4=0 \cdot 15 +4$\\
+(c) unique quotient: -3, remainder: 2, because $-7=-3 \cdot 3+2$\\
+(d) unique quotient: 5, remainder: 10, because $65=5 \cdot 11+10$\\
+(e) unique quotient: -1, remainder: 14, because $-1=-1 \cdot 15+14$\\
+(f) unique quotient: 0, remainder: 0, because $0=0 \cdot 4+0$\\
+
+\subsection{Exercise 2.17.}
+\textbf{Task:} For each of the following pairs of numbers, list all their common divisors (positive and negative!), and find gcd($a,b$).
+
+\begin{center}
+    \begin{tabular}{ccc}
+        (a) $a = 12$, $b = 330$ & (b) $a = -36$, $b = 64$ & (c) $a = 7$, $b = -27$ \\
+    \end{tabular}
+\end{center}
+
+\subsubsection*{Solution}
+
+(a) ordered common divisors: -6,-3,-2,-1,1,2,3,6\\
+(b) ordered common divisors: -4,-2,-1,1,2,4\\
+(c) ordered common divisors: -1,1
+
+\subsection{Exercise 2.18.}
+\textbf{Task:} For each pair of integers, find gcd(a,b) and integers $k$ and $l$ such that $gcd(a,b) =ak+bl$. (Note: We know that such integers exist by Theorem 2.13.)
+
+\begin{center}
+    \begin{tabular}{ccc}
+        (a) $a = 3$, $b = 13$ & (c) $a = -25$, $b = 40$ & (e) $a = 62$, $b = 48$ \\
+        (b) $a = 13$, $b = 3$ & (d) $a = -22$, $b =-14$ & (f) $a = 13$, $b = -50$ \\
+    \end{tabular}
+\end{center}
+
+\subsubsection*{Solution}
+
+(a) $gcd(3,13)= 1 =3 \cdot (-4)+13 \cdot 1$\\
+(b) $gcd(13,3)= 1 =13 \cdot 1+3 \cdot (-4)$\\
+(c) $gcd(-25,64)= 1 =-25 \cdot 23+64 \cdot 9$\\
+(d) $gcd(-22,-14)= 2 =(-22) \cdot (-2)+(-14) \cdot 3$\\
+(e) $gcd(62,48)= 2 =62 \cdot 7+48 \cdot (-9)$\\
+(f) $gcd(13,-50)= 1 =13 \cdot 77+(-50) \cdot 20$\\
+
+\newpage
+
+\subsection{Exercise 2.19.}
+\textbf{Task:} Let $a$ and $b$ be positive integers, and suppose $r$ is the nonzero remainder when $b$ is divided by $a$. Prove that when $-b$ is divided by a, the remainder is $a-r$.
+
+\subsubsection*{Solution}
+
+\begin{proof}
+    To prove the statement, we use the division algorithm for positive integers. \\
+
+    Since $r$ is the remainder when $b$ is divided by $a$, we can write
+    $$
+    b = q \cdot a + r,
+    $$
+    where $a > r \geq 0$ and $q$ is an integer.\\
+
+    Now, we multiply both sides of this equation by $-1$:
+    $$
+    -b = -q \cdot a - r.
+    $$
+
+    To express $-b$ in a form that matches the division algorithm (a multiple of $a$ plus a remainder that lies between $0$ and $a$), we rewrite the equation as follows. Let $p = -q - 1$ so that $p$ is an integer. Then we can write
+    
+    $$
+    -b = p \cdot a + (a - r).
+    $$
+
+    Since $0 \leq a - r < a$, we see that when $-b$ is divided by $a$, the remainder is indeed $a - r$.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.20.}
+\textbf{Task:} Determine the remainder when $3^{302}$ is divided by 28, and show how you found your answer (without a calculator!).
+
+\subsubsection*{Solution}
+
+To find the remainder when $3^{302}$ is divided by 28, we need to determine the value of $x$ such that $3^{302} \equiv x \pmod{28}$. Here’s how we can approach this:
+
+\noindent First, observe that $3^3 = 27$, and $27 \equiv -1 \pmod{28}$. This congruence will help us simplify the expression for $3^{302}$ by using powers of $-1$.
+
+\noindent Since $3^3 \equiv -1 \pmod{28}$, we can apply Proposition 2.15, part (iii) repeatedly. By raising both sides of the congruence to the 100th power, we get:
+\[
+(3^3)^{100} \equiv (-1)^{100} \pmod{28}
+\]
+which simplifies to:
+\[
+3^{300} \equiv 1 \pmod{28}
+\]
+
+\noindent Now, we can write $3^{302}$ as:
+\[
+3^{302} = 3^{300} \cdot 3^2
+\]
+Since $3^{300} \equiv 1 \pmod{28}$ and $9 \equiv 9 \pmod{28}$, we get by Proposition 2.15(iii):
+\[
+3^{302} \equiv 3^{300} \cdot 9 \equiv 1 \cdot 9 \equiv 9 \pmod{28}
+\]
+
+Therefore, we have shown that $3^{302} \equiv 9 \pmod{28}$, which means the remainder when $3^{302}$ is divided by 28 is 9.
+
+\newpage
+
+\subsection{Exercise 2.21.}
+\textbf{Task:} Assume that $a,b,c,d$ and $n$ are integers. Also assume that $a \equiv b \pmod{n}$ and $c \equiv d \pmod{n}$. Prove the following.\\
+(i) $a-c \equiv b-d \pmod{n}$\\
+(ii) $a\cdot c \equiv b\cdot d \pmod{n}$
+
+\subsubsection*{Solution}
+
+\begin{proof}
+\underline{Part (i).} Assume that $a \equiv b \pmod{n}$ and $c \equiv d \pmod{n}$. By the definition of modular congruence (Definition 2.14), 
+
+\[
+    n \mid (a - b) \hspace{1cm} \text{and} \hspace{1cm} n \mid (c - d).
+\]
+
+Then by the definition of divisibility (Definition 2.8),
+
+\[
+    a - b = nk \hspace{1cm} \text{and} \hspace{1cm} c - d = np
+\]
+
+for some integers $k$ and $p$. Subtracting the second equation from the first, we have:
+
+\[(a-b)-(c-d)=nk-np.\]
+
+Regrouping,
+
+\[(a-c)-(b-d)=n(k-p)\]
+
+Since $k-p$ is an integer, by the definition of divisibility (Definition 2.8),
+
+\[n \mid (a-c)-(b-d)\]
+
+which then by the definition of modular congruence (Definition 2.14) means that
+
+\[a-c \equiv b-d \pmod{n},\]
+
+completing the proof of (i).
+
+\newpage
+
+\underline{Part (ii).} 
+
+Assume that $a \equiv b \pmod{n}$ and $c \equiv d \pmod{n}$. By the definition of modular congruence (Definition 2.14), 
+
+\[
+    n \mid (a - b) \hspace{1cm} \text{and} \hspace{1cm} n \mid (c - d).
+\]
+
+Then by the definition of divisibility (Definition 2.8),
+
+\[
+    a - b = nx \hspace{1cm} \text{and} \hspace{1cm} c - d = ny
+\]
+
+for some integers $k$ and $p$. We get,
+
+\begin{align*}
+    a\cdot c - b \cdot d &= a\cdot c - b \cdot d \\
+    &= (nx+b) \cdot (ny+d) - b \cdot d \\
+    &= n^2xy+nxd+nyb+bd-bd\\
+    &= n^2xy+nxd+nyb\\
+    &= n(nxy+xd+yb)\\
+\end{align*}
+
+Since $nxy+xd+yb$ is an integer, by the definition of divisibility (Definition 2.8),
+
+\[n \mid (a\cdot c)-(b\cdot d)\]
+
+which then by the definition of modular congruence (Definition 2.14) means that
+
+\[a\cdot c \equiv b \cdot d \pmod{n},\]
+
+completing the proof of (ii).
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.22.}
+\textbf{Task:} Assume that $a$ is an integer and $p$ and $q$ are distinct primes. Prove that if $p \mid a$ and $q \mid a$, then $pq \mid a$. Also, before your proof, give three examples for this property.
+
+\subsubsection*{Solution}
+
+\begin{proof}
+    Assume that $p \mid a$ and $q \mid a$. By the definition of divisibility (Definition 2.8), this implies that there exist integers $k$ and $s$ such that
+
+    \[
+        a = pk \hspace{1.5cm} \text{and} \hspace{1.5cm} a = qs.
+    \]
+
+    Since $a = qs$, it follows that $p \mid qs$. By Lemma 2.17 (iii), and the fact that $p \nmid q$ (since $p$ and $q$ are distinct primes), we conclude that $p \mid s$. Therefore, we can write
+
+    \[
+        s = pm
+    \]
+
+    for some integer $m$. Substituting this expression for $s$ into the equation $a = qs$, we get
+
+    \[
+        a = q(pm) = (pq)m.
+    \]
+
+    Since $m$ is an integer, this shows that $pq \mid a$, which completes the proof.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.23.}
+\textbf{Task:} Prove that if $abc$ is a multiple of 10 (,where $a,b,c$ are integers!), then at least one of $ab$, $ac$ or $bc$ is a multiple of 10. Also, before your proof, give three examples of this property.
+
+\subsubsection*{Solution}
+
+\begin{proof}
+    First, note that since $2 \mid 10$ and $5 \mid 10$ and both 2 and 5 are prime, any number divisible by 10 must have both 2 and 5 as factors. Since we are given that $10 \mid abc$, Proposition 2.10 implies that both $2 \mid abc$ and $5 \mid abc$. Applying Lemma 2.17 (iii) to both $2 \mid abc$ and $5 \mid abc$, we conclude that:
+
+    $$
+    5 \mid a, \hspace{1cm} 5 \mid b \hspace{1cm} \text{or} \hspace{1cm} 5 \mid c
+    $$
+
+    and
+
+    $$
+    2 \mid a, \hspace{1cm} 2 \mid b \hspace{1cm} \text{or} \hspace{1cm} 2 \mid c.
+    $$
+
+    This result shows that at least one of $a$, $b$, or $c$ is divisible by 5, and at least one of $a$, $b$, or $c$ is divisible by 2. This leads us to consider two possible cases to complete the proof:\\
+
+    \underline{\textbf{Case 1:} One number is divisible by 5 and a different number is divisible by 2.}\\
+
+      Let’s consider the case where $5 \mid a$ and $2 \mid b$. By the definition of divisibility (Definition 2.8), we can write $a = 5x$ and $b = 2y$ for some integers $x$ and $y$. Then:
+
+    $$
+    ab = (5x)(2y) = 10(xy),
+    $$
+
+    where $xy$ is an integer. By Definition 2.8, this shows that $10 \mid ab$ in this case. By similar reasoning, any pairing of one factor divisible by 5 and another by 2 will result in a product divisible by 10, ensuring that at least one of $ab$, $ac$, or $bc$ is divisible by 10.\\
+    
+    \underline{\textbf{Case 2:} 5 and 2 both divide the same number among $a$, $b$, or $c$.}\\
+
+    Assume, for instance, that $5 \mid a$ and $2 \mid a$. This implies $a = 5k$ and $a = 2p$ for some integers $k$ and $p$. Substituting, we get $2 \mid 5k$. Since $\text{gcd}(2,5) = 1$, by Lemma 2.17 (ii), it follows that $2 \mid k$. Thus, $k = 2s$ for some integer $s$, and we can rewrite $a$ as:
+    \begin{align*}
+        a &= 5(2s) \\
+        a &= 10s \\
+        ab &= 10(bs)
+    \end{align*}
+
+    By Definition 2.8, this means $10 \mid ab$, or any other pair of $a,b$ and $c$.
+
+    Thus, $10 \mid \text{(pair of $a,b$ and $c$)}$ holds in both cases.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.24.}
+\textbf{Task:} Assume that $a,b$ and $c$ are integers, where $a^2\mid b$ and $b^3 \mid c$. Prove that $a^6\mid c$. Also, before your proof, give three examples of this property.
+
+\subsubsection*{Solution}
+
+\begin{proof}
+    Let $a$, $b$, and $c$ be integers, and suppose $a^2 \mid b$ and $b^3 \mid c$. By the definition of divisibility (Definition 2.8), we know that there exist integers $x$ and $y$ such that:
+
+    \[
+        b = a^2x \quad \text{and} \quad c = b^3y.
+    \]
+
+    Now, let’s expand $b^3$ in terms of $a$:
+
+    \[
+        b^3 = (a^2x)^3 = a^6x^3.
+    \]
+
+    \noindent Since $x^3$ is an integer, we see that $a^6 \mid b^3$ by Definition 2.8.
+
+    \noindent Now that we know $a^6 \mid b^3$ and $b^3 \mid c$, Proposition 2.10 implies $a^6 \mid c$. 
+\end{proof}
+
+\subsection{Exercise 2.25.}
+\textbf{Task:} Prove that for every integer $n$, either $n^2 \equiv 0 \pmod{4}$ or $n^2 \equiv 1 \pmod{4}$.
+
+\subsubsection*{Solution}
+
+\begin{proof}
+    We will prove that for any integer $n$, either $n^2 \equiv 0 \pmod{4}$ or $n^2 \equiv 1 \pmod{4}$. To do this, we consider the two cases where $n$ is either even or odd.
+
+    \underline{\textbf{Case 1:} $n$ is an even integer}\\
+
+    If $n$ is even, then by Definition 2.2, we can write $n = 2k$ for some integer $k$. Then,
+
+    \[
+    n^2 = (2k)^2 = 4k^2 = 4(k^2).
+    \]
+
+    Since $k^2$ is an integer, this shows that $n^2$ is a multiple of $4$, or $n^2 = 4p$ for some integer $p = k^2$. By Definition 2.8, this means $4 \mid n^2$. Using the definition of congruence (Definition 2.14), we conclude that $n^2 \equiv 0 \pmod{4}$.
+
+    \underline{\textbf{Case 2:} $n$ is an odd integer}\\
+
+    If $n$ is odd, then by Definition 2.2, we can write $n = 2k + 1$ for some integer $k$. Then,
+
+    \[
+    n^2 - 1 = (2k + 1)^2 - 1 = 4k^2 + 4k + 1 - 1 = 4(k^2 + k).
+    \]
+
+    Since $k^2 + k$ is an integer, we have shown that $n^2 - 1$ is a multiple of $4$, or $n^2 - 1 = 4p$ for some integer $p = k^2 + k$. By Definition 2.8, this means $4 \mid (n^2 - 1)$. Therefore, $n^2 \equiv 1 \pmod{4}$ by Definition 2.14.
+
+    Since $n^2 \equiv 0 \pmod{4}$ or $n^2 \equiv 1 \pmod{4}$ in both cases, the proof is complete.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.26.}
+\textbf{Task:} Prove that if $a,b$ and $n$ are positive integers and $a \equiv b \pmod{n}$, then $a^2 \equiv b^2 \pmod{n}$. Also, before your proof, write down three examples of this property.
+
+\subsubsection*{Solution}
+
+\begin{proof}
+    Assume that if $a,b$ and $n$ are positive integers and $a \equiv b \pmod{n}$. Since $a \equiv b \pmod{n}$, we have that $a \cdot a \equiv b \cdot b \pmod{n}$ by Proposition 2.15(iii), giving us $a^2 \equiv b^2 \pmod{n}$. This completes the proof.
+\end{proof}
+
+\subsection{Exercise 2.27.}
+\textbf{Task:} The Pythagorean theorem involves integers $a,b$ and $c$ for which $a^2+b^2=c^2$. Prove that if three integers satisfy this relationship, then either $a,b$ or $c$ will be divisible by 3.
+
+\subsubsection*{Solution}
+
+\begin{proof}
+    Assume that $a$, $b$, and $c$ are integers such that $a^2 + b^2 = c^2$. We want to prove that at least one of $a$, $b$, or $c$ is divisible by 3.
+
+    To do this, let’s use the contrapositive approach by assuming the opposite: suppose that none of $a$, $b$, or $c$ is divisible by 3. This implies that each of $a$, $b$, and $c$ must be congruent to either $1$ or $2$ modulo 3. Thus:
+
+    \[
+    a \equiv 1 \text{ or } 2 \pmod{3}, \hspace{0.5cm} b \equiv 1 \text{ or } 2 \pmod{3}, \hspace{0.5cm} c \equiv 1 \text{ or } 2 \pmod{3}.
+    \]
+
+    Now, by applying Proposition 2.15(iii), we find that:
+
+    \[
+    a^2 \equiv 1 \pmod{3}, \hspace{0.5cm} b^2 \equiv 1 \pmod{3}, \hspace{0.5cm} c^2 \equiv 1 \pmod{3}.
+    \]
+
+    Using Proposition 2.15(i) we get:
+
+    \[
+    a^2 + b^2 \equiv 1 + 1 = 2 \pmod{3}.
+    \]
+
+    However, since $a^2 + b^2 = c^2$, we also have $c^2 \equiv a^2 + b^2 \equiv 2 \pmod{3}$. This leads to a contradiction, because we previously determined that $c^2 \equiv 1 \pmod{3}$.
+
+    Therefore, our assumption that none of $a$, $b$, or $c$ is divisible by 3 is incorrect. This proves that at least one of $a$, $b$, or $c$ must be divisible by 3.
+
+    This completes the proof.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.28.}
+\textbf{Task:} Prove that $n$ is even if and only if $n^2$ is even. To do this, here are the two things you should prove:\\
+(a) If $n$ is even, then $n^2$ is even.\\
+(b) If $n^2$ is even, then $n$ is even.
+
+\subsubsection*{Solution}
+
+\begin{proof}
+    To prove that $n$ is even if and only if $n^2$ is even, we'll show two parts:\\
+
+    \underline{\textbf{Part 1:} if $n$ is even, then $n^2$ is even:}\\
+    Assume that $n$ is an even integer, which means by Definition 2.2, $n=2k$ for some integer $k$. Thus,
+
+    \[n^2=(2k)^2=4k^2=2(2k^2).\]
+
+    And since, by Fact 2.1, $2k^2$ is an integer too, we have shown that $n^2=2(p)$ for some integer $p=2k^2$. This shows, by Definition 2.2, that $n^2$ is an even integer.
+
+    \underline{\textbf{Part 2:} If $n^2$ is even, then $n$ is even:}\\
+We are given that $n^2$ is an even number, and we need to prove that $n$ must also be even. To do this, let us assume the opposite: suppose $n$ is odd. 
+
+If $n$ is odd, then by definition, $n$ can be written as $n = 2k + 1$ for some integer $k$. Thus,
+\[
+n^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1.
+\]
+
+And since, by Fact 2.1, $2k^2+2k$ is an integer too, we have shown that $n^2=2(p)+1$ for some integer $p=2k^2+2k$. This shows, by Definition 2.2, that $n^2$ is an even integer.
+
+This is a contradiction because we assumed at the beginning that $n^2$ is even. Therefore, our assumption that $n$ is odd must be incorrect, and $n$ must be even.\\
+
+    Hence, $n$ is even if and only if $n^2$ is even.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.29.}
+\textbf{Task:} Suppose that $a$, and $b$ are positive integers, and gcd($a,b$)$=d$. Prove that $a\mid b$ if and only if $d=a$. To do this, here are the two things you should prove:\\
+(a) If $a\mid b$, then $d=a$.\\
+(b) If $d=a$ is even, then $a\mid b$.
+
+\subsubsection*{Solution}
+
+\begin{proof}
+    Suppose that $a$, and $b$ are positive integers, and gcd($a,b$)$=d$. To prove that $a\mid b$ if and only if $d=a$, we'll show two parts:\\
+
+    \underline{\textbf{Part 1:} If $a\mid b$, then $d=a$:}\\
+    Assume that $a \mid b$. By Definition 2.8, this means $b=ak$ for some integer $k \geq 0$. Substituting this expression for $b$ into the equation gcd($a,b$)$=d$, we get
+
+    \[\gcd(a,ak)=d.\]
+
+    Notice though, that the gcd$(a,ak)$ equals $a$, because $a\mid ak$ and $a \leq ak$. Therefore, we conclude that.
+
+        \[a=d.\]
+
+    \underline{\textbf{Part 2:} If $d=a$, then $a\mid b$:}\\
+    Assume that $d=a$. Substituting this expression for $d$ into the equation gcd($a,b)=d$, we get 
+
+    \[ \gcd(a,b)=a.\]
+
+    Since $a$ is a divisor if the greatest common divisor, it must also divide $b$. Thus, we have
+    
+    \[a\mid b.\]
+
+    This completes the proof, showing that $a\mid b$ if and only if $d=a$.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.30.}
+\textbf{Task:} Prove that $m \equiv n \pmod{15}$ if and only if $m \equiv n \pmod{3}$ and $m \equiv n \pmod{5}$. To do this, here are the two things that you should prove:\\
+(a) If $m \equiv n \pmod{15}$, then $m \equiv n \pmod{3}$ and $m \equiv n \pmod{5}$.\\
+(b) If $m \equiv n \pmod{3}$ and $m \equiv n \pmod{5}$, then $m \equiv n \pmod{15}$.
+
+\subsubsection*{Solution}
+
+\begin{proof}
+   To prove that $m \equiv n \pmod{15}$ if and only if $m \equiv n \pmod{3}$ and $m \equiv n \pmod{5}$, we'll show two parts:\\
+
+   \underline{\textbf{Part 1:} If $m \equiv n \pmod{15}$, then $m \equiv n \pmod{3}$ and $m \equiv n \pmod{5}$:}\\
+   Assume that $m \equiv n \pmod{15}$, which means, by Definition 2.14, $15\mid (m-n)$.\\
+   Notice that $3 \mid 15$ and $5\mid 15$, and $3$ and $5$ are prime numbers. Given that, Proposition 2.10. implies $3\mid (m-n)$ and $5 \mid (m-n)$, which can be written as $m \equiv n \pmod{3}$ and $m \equiv n \pmod{5}$.\\
+
+   \underline{\textbf{Part 2:} If $m \equiv n \pmod{3}$ and $m \equiv n \pmod{5}$, then $m \equiv n \pmod{15}$}\\
+   Assume that $m \equiv n \pmod{3}$ and $m \equiv n \pmod{5}$. Since 3 and 5 are distinct primes, Exercise 2.22 implies $15 \mid (m-n)$, which, by Definition 2.14, is the same as $m \equiv n \pmod{15}$.\\
+
+   This completes the proof, showing that $m \equiv n \pmod{15}$ if and only if $m \equiv n \pmod{3}$ and $m \equiv n \pmod{5}$.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.31.}
+\textbf{Task:} Suppose that $a$ and $b$ are positive integers and $d=$ gcd($a,b$).\\
+(a) Prove that gcd($\frac{a}{d},\frac{b}{d}$)$=1$.\\
+(b) Prove that gcd($an,bn$)$=dn$ for every positive integer $n$.
+
+\subsubsection*{Solution}
+
+(a)
+
+\begin{proof}
+    Suppose that $c=gcd(\frac{a}{d},\frac{b}{d})$. We want to show that $c=1$. We will do this by showing that $c \leq 1$ and $c \geq 1$. The latter inequality follows from the fact that $c$ is the greatest common divisor of two integers, and as we noted, every greatest common divisor is greater or equal to 1. To show that $c \leq 1$, we use the fact that $c\mid \frac{a}{d}$ and $c\mid \frac{b}{d}$. We then know that there are integers $q$ and $r$ such that $cq=\frac{a}{d}$ and $cr=\frac{b}{d}$. Thus,
+
+    \[(cd)q=a \hspace{2cm} (cd)r=b.\]
+
+    These equations show that $cd$ is a divisor of $a$ and $b$. It is thus not greater than the greatest common divisor of $a$ and $b$, because this is $d=gcd(a,b)$.\\
+    Hence $cd \leq d$, which implies $c \leq 1$.
+
+    Since $c \leq 1$ and $c \geq 1$, $c=1$, which completes the proof.
+\end{proof}
+
+\noindent (b)
+
+\begin{proof}
+    Assume that $\gcd\left(a, b\right)=d$. We want to show that $\gcd\left(an, bn\right)=dn$ for any positive integer $n$. To do this, we'll show that $\gcd\left(an, bn\right)\geq dn$ and $\gcd\left(an, bn\right)\leq dn$, which will imply that $\gcd\left(an, bn\right)=dn$.\\
+
+    \underline{Part 1: showing $\gcd\left(an, bn\right)\geq dn$:}\\
+    Since $\gcd\left(a, b\right)=d$, we know $d\mid a$ and $d\mid b$, so we can write $a=dx$ and $b=dy$ for some integers $x$ and $y$. Now multiplying both $a$ and $b$ by an positive integer $n$, we get
+
+    \[an=(dn)x \hspace{1cm} and \hspace{1cm} bn=(d)y.\]
+
+    Definition 2.8 tells us that this means $dn\mid an$ and $dn\mid bn$. Hence $dn$ is a common divisor of $an$ and $bn$, which implies that $\gcd\left(an, bn\right)\geq dn$.\\
+
+    \underline{Part 2: showing $\gcd\left(an, bn\right)\leq dn$}\\
+    Since $\gcd\left(a, b\right)=d$, we know $d\mid a$ and $d\mid b$. This implies $d \leq a$ and $d \leq b$. Note that $\gcd\left(an, bn\right)\leq an$ and $\gcd\left(an, bn\right)\leq bn$. Since $d \leq a,b$, it follows that $\gcd\left(an, bn\right)\leq an,bn \leq dn$. Therefore $\gcd\left(an, bn\right)\leq dn$.
+
+     Since we have shown both that \(\gcd(an, bn) \geq dn\) and \(\gcd(an, bn) \leq dn\), we conclude that \(\gcd(an, bn) = dn\), as required.
+
+    This completes the proof.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.32.}
+\textbf{Task:} Assume that $a,b$ and $c$ are integers for which \(\gcd(a, b) =1\) and  \\\(\gcd(a, c) =1\). Prove that  \(\gcd(a, bc) =1\).
+
+\subsubsection*{Solution}
+
+\begin{proof}
+    Assume that $\gcd(a,b)=1$ and $\gcd(a,c)=1$. By Bezout's Identity,there exist integers $m,n,x$ and $y$ such that $1=am+bn$ and $1=ax+cy$. Since both expressions equal $1$, we can multiply both equations together and obtain:
+
+    \begin{align*}
+        (am+bn)(ax+cy)&=1 \\
+        a^2mc+amcy+bnax+bncy&=1 \\
+        a(amc+mcy+bnx)+bc(ny) &=1.
+    \end{align*}
+
+    Since there exist integers $k$ and $p$ such that $a(k)+bc(p)=1$, where $k=(amc+mcy+bnx)$ and $p=(ny)$, we conclude that $\gcd(a,bc)=1$. Note that this conclusion is valid only because we showed that $\gcd(a,bc)=1$. For any greater common divisor, we would first have to show that no smaller integer can be represented as $a(k)+bc(p)$.  
+\end{proof}
+
+\subsection{Exercise 2.33.}
+\textbf{Task:} For the pairs of numbers in parts (a)-(d), determine $\gcd(a,b), \text{LCM}(a,b)$, and $ab$.\\
+(a) $a=6, b = 8$\\
+(b) $a=3, b = 6$\\
+(c) $a=4, b = 6$\\
+(d) $a=5, b = 6$\\
+(e) Based on your answers to parts (a)-(d), conjecture a relationship between $\gcd(a,b), \text{LCM}(a,b)$ and $ab$. Then, prove that your conjecture is correct.
+
+\subsubsection*{Solution}
+
+(a) $\gcd(a,b)=2$, LCM$(a,b)=24$, $ab=48$\\
+(b) $\gcd(a,b)=3$, LCM$(a,b)=6$, $ab=18$\\
+(c) $\gcd(a,b)=2$, LCM$(a,b)=12$, $ab=24$\\
+(d) $\gcd(a,b)=1$, LCM$(a,b)=30$, $ab=30$\\
+(e)
+
+\begin{conjecture}{}
+    If $a$ and $b$ are both positive non-zero integers, then 
+    \[\text{LCM}(a,b)=\frac{ab}{\gcd(a,b)}.\]
+\end{conjecture}
+
+\newpage
+
+\begin{proof}
+    First notice that 
+
+    \[\frac{ab}{\gcd(a,b)} = a(\frac{b}{\gcd(a,b)})=b(\frac{a}{\gcd(a,b)}).\]
+
+    \noindent is a common multiple of $a$ and $b$. Thus LCM$(a,b) \leq \frac{ab}{\gcd(a,b)}$. \\   
+
+    \noindent By the division algorithm, we can express $ab$ as:
+    \[
+    ab = q \cdot \text{LCM}(a, b) + r,
+    \]
+    where $0 \leq r < \text{LCM}(a, b)$. Thus,
+    
+    \begin{align*}
+        r&= q \cdot \text{LCM}(a, b) - ab \\
+        &= a(q \cdot x - b)\\
+        &= b(q \cdot y - a)
+    \end{align*}
+
+    for some integers $x$ and $y$. As the equation above shows, $r$ is also a common multiple of $a$ and $b$. Since $0 \leq r < \text{LCM}(a, b)$, $r=0$. This implies that $\text{LCM}(a, b) \mid ab$.
+    
+    Now notice that
+
+    \[(\frac{ab}{\text{LCM}(a,b)})\cdot\ \frac{\text{LCM}(a,b)}{b} = a\]
+
+    and 
+
+    \[(\frac{ab}{\text{LCM}(a,b)}) \cdot\ \frac{\text{LCM}(a,b)}{a} = b.\]
+
+    By the definition of divisibility, and the fact that $\frac{\text{LCM}(a,b)}{a}$ and $\frac{\text{LCM}(a,b)}{b}$ are integers, this means $\frac{ab}{\text{LCM}(a,b)}$ is a common divisor of $a$ and $b$. 
+    Since $\gcd(a,b)$ is the greatest common divisor of $a$ and $b$, we get $\frac{ab}{\text{LCM}(a,b)} \leq \gcd(a,b)$, which implies  LCM$(a,b) \geq \frac{ab}{\gcd(a,b)}$, because $\gcd(a,b),\text{LCM}(a,b) \geq 0$.\\
+
+    \noindent Since LCM$(a,b) \leq \frac{ab}{\gcd(a,b)}$ and  LCM$(a,b) \geq \frac{ab}{\gcd(a,b)}$, $\text{LCM}(a,b)=\frac{ab}{\gcd(a,b)}$.    \\
+    This completes the proof.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.34.}
+\textbf{Task:} If $\gcd(a,b)=1$, then we say that $\frac{a}{b}$ is in \textit{reduced form}. Prove that if $n$ is an integer, then
+
+\[\frac{21n+4}{14n+3}\]
+
+is in reduced form.
+
+\subsubsection*{Solution}
+
+\begin{proof}
+    To show that $\frac{21n+4}{14n+3}$ is in reduced form, we'll prove that \\$\gcd(21n+4, 14n+3) = 1$, which will imply that $\frac{21n+4}{14n+3}$ is indeed in reduced form.\\
+    By Bezout's Identity (Theorem 2.13), there exist integers $x$ and $y$ such that 
+
+    \[\gcd(21n+4, 14n+3) = (21n+4)x + (14n+3)y.\]
+
+    We now choose $x = -2$ and $y = 3$, which gives us
+
+    \[\gcd(21n+4, 14n+3) = 1.\]
+    
+    Since we have found integers $x$ and $y$ such that $(21n+4)x + (14n+3)y = 1$, it follows from Bezout's Identity that $\gcd(21n+4, 14n+3) = 1$. \\Therefore, since we have shown that $\gcd(21n+4, 14n+3) = 1$, $\frac{21n+4}{14n+3}$ is in reduced form, which completes the proof.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.35.}
+\textbf{Task:} Prove that $3 \mid (4^n-1)$ for every $n \in \mathbb{N}$ in two different ways.\\
+(a) First, prove is using modular arithmetic.\\
+(b) Second, prove it using the fact (which you do not have to prove) that 
+
+\[x^n-y^n=(x-y)(x^{n-1}+x^{n-2}y+x^{n-3}y^2+ \dots + xy^{n-2}+y^{n-1})\]
+
+for any real numbers $x$ and $y$.
+
+\subsubsection*{Solution}
+
+(a)
+
+\begin{proof}
+    First, observe that $4 \equiv 1 \pmod{3}$. By applying Proposition 2.15 (iii) repeatedly $n$ times, we obtain
+
+    \[4^n \equiv 1^n \equiv 1 \pmod{3}.\]
+
+    Therefore, by the definition of modular congruence (Definition 2.14), we have $3 \mid (4^n - 1)$, which completes the proof.
+\end{proof}
+
+\noindent (b)
+
+\begin{proof}
+    By applying the fact from the task (b) with $x=4$ and $y=1$, we obtain
+
+    \[
+    4^n - 1^n = 4^n - 1 = (4 - 1)(4^{n-1} + 4^{n-2} \cdot 1 + 4^{n-3} \cdot 1^2 + \dots + 4 \cdot 1^{n-2} + 4^{n-1}).
+    \]
+
+    Notice that $(4 - 1) = 3$, and the product and sum of the integers $4$ and $1$ will always result in an integer. Therefore, we can write
+
+    \[
+    4^n - 1 = 3k,
+    \]
+    where $k = (4^{n-1} + 4^{n-2} \cdot 1 + 4^{n-3} \cdot 1^2 + \dots + 4 \cdot 1^{n-2} + 4^{n-1})$ is an integer. This shows, by Definition 2.8, that $3 \mid (4^n - 1)$. This completes the proof.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.36.}
+\textbf{Task:} Prove that every odd integer is the difference of two squares. (For example, $11 = 6^2 - 5^2$)
+
+\subsubsection*{Solution}
+
+\begin{proof}
+    Let $k$ be a non-negative integer. Consider the difference of the squares of $(k+1)$ and $k$:
+
+    \[
+    (k+1)^2 - k^2 = (k^2 + 2k + 1) - k^2 = 2k + 1.
+    \]
+
+    This shows that $(k+1)^2 - k^2 = 2k + 1$, which is an odd number since $2k + 1$ is always odd for any integer $k$. Therefore, we have shown that the difference of the squares of two integers $(k+1)$ and $k$ is always an odd number. 
+
+    Hence, every odd integer can be expressed as the difference of two squares.
+\end{proof}
+
+\subsection{Exercise 2.37.}
+\textbf{Task:} Prove that for every positive integer $n$, there exist a string of $n$ consecutive integers none of which are prime.
+
+\subsubsection*{Solution}
+
+\begin{proof}
+    First, observe that for any positive integer $n$, we can construct a sequence of $n$ consecutive integers as follows:
+
+    \[
+    (n+1)! + 2, (n+1)! + 3, (n+1)! + 4, \dots, (n+1)! + n, (n+1)! + (n+1).
+    \]
+
+    To prove that none of these integers is prime, we use the fact that 
+
+    \[
+    (n+1)! = 1 \cdot 2 \cdot 3 \cdot 4 \cdots (n-1) \cdot n \cdot (n+1).
+    \]
+
+    Since we are adding an integer $t$ where $2 \leq t \leq n+1$, we can always factor out $t$ from each term in the sequence as follows:
+
+    \begin{align*}
+        (n+1)! + t &= 1 \cdot 2 \cdot 3 \cdots t \cdots (n-1) \cdot n \cdot (n+1) + t \\
+        &= t\left(\frac{(n+1)!}{t} + 1\right).
+    \end{align*}
+
+    By Definition 2.8, this implies that $(n+1)! + t$ is divisible by $t$, since $\frac{(n+1)!}{t}$ is an integer (as $t$ divides $(n+1)!$). Therefore, each integer in the sequence is divisible by some integer $t$ greater than 1, meaning none of them is prime.
+
+    Hence, we have constructed a sequence of $n$ consecutive integers, none of which are prime. This completes the proof.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.38.}
+\textbf{Task:} The following Conjectures are all false, Prove that they are false by finding a counterexample to each.\\
+(a) \underline{Conjecture 1:} Let $f(n) = n^2 -n +5$. If $n$ is an integer, then $f(n)$ is a prime number.\\
+(b) \underline{Conjecture 2:} Suppose $a,b$ and $c$ are positive integers. If $a \mid bc$ then $a\mid b$ or $a \mid c$.\\
+(c) \underline{Conjecture 3:} Suppose $a$ and $b$ are integers. If $a\mid b$ and $b \mid a$, then $a=b$.
+
+\subsubsection*{Solution}
+
+(a)
+
+\begin{proof}
+     Let $n = 5$. Then 
+    \[
+    f(5) = 5^2 - 5 + 5 = 25 = 5 \cdot 5,
+    \]
+    which is not a prime number. Thus, Conjecture 1 is false.
+\end{proof}
+
+\noindent (b)
+
+\begin{proof}
+     Let $a = 6$, $b = 2$, and $c = 3$. Then $6 \mid (3 \cdot 2)$, but neither $6 \mid 2$ nor $6 \mid 3$. Therefore, Conjecture 2 is false.
+\end{proof}
+
+\noindent (c)
+
+\begin{proof}
+    Let $a = 1$ and $b = -1$. Then $1 \mid -1$ and $-1 \mid 1$, but $1 \neq -1$. Therefore, Conjecture 3 is false.
+\end{proof}
+
+\subsection{Exercise 2.39.}
+\textbf{Task:} Suppose $n$ is an integer. Prove that if $n^2 \mid n$, then $n$ is either $-1,0$ or 1. 
+
+\subsubsection*{Solution}
+
+\begin{proof}
+    Suppose $n$ is an integer and that $n^2 \mid n$. By Definition 2.8, this implies that there exists an integer $k$ such that
+    \[
+    n = n^2 \cdot k.
+    \]
+    To proceed, we divide both sides of this equation by $n$. However, we must first consider the case when $n = 0$ separately, since division by zero is undefined. If $n = 0$, then the statement is trivially true. 
+
+    Now assume $n \neq 0$. Dividing the equation by $n$, we obtain
+    \[
+    1 = n \cdot k.
+    \]
+    According to Definition 2.14, this implies that $n \mid 1$. Since $1$ is only divisible by $1$ and $-1$, it follows that $n = 1$ or $n = -1$.
+
+    Therefore, we have shown that if $n^2 \mid n$, then $n$ must be either $-1$, $0$, or $1$, which completes the proof.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.40.}
+\textbf{Task:} As Evelyn Lamb pointed out,
+\[\text{Every prime larger than 3 is precisely 1 off from a multiple of 3!}\]
+
+\noindent The cool thing about this statement is that it is true whether the "!" symbol is an exclamation or a factorial! Prove this.
+
+\subsubsection*{Solution}
+
+\begin{proof}
+Let \( p \) be a prime number such that \( p > 3 \). Any integer can be written in one of the following forms:
+\[
+p = 6k, \quad p = 6k + 1, \quad p = 6k + 2, \quad p = 6k + 3, \quad p = 6k + 4, \quad p = 6k + 5,
+\]
+where \( k \) is an integer.
+
+Now, since \( p \) is prime and greater than \( 3 \), it cannot be divisible by \( 2 \) or \( 3 \). We examine each case:
+
+  \[
+\begin{array}{c|c}
+\text{Expression} & \text{Divisibility} \\
+\hline
+6n=2(3n)=3(2n)    & \text{Divisible by 2 and 3} \\
+6n + 1       & \text{Not divisible by 2 or 3} \\
+6n + 2  = 2(3n+1)     & \text{Divisible by 2} \\
+6n + 3  = 3(2n+1)   & \text{Divisible by 3} \\
+6n + 4  = 2(3n+2)   & \text{Divisible by 2} \\
+6n + 5       & \text{Not divisible by 2 or 3} \\
+\end{array}
+\]
+
+This leaves only two cases:
+
+\begin{itemize}
+    \item \textbf{Case 1:} \( p = 6k + 1 \): Here, \( p \) is \( 1 \) more than a multiple of \( 6 \).
+    \item \textbf{Case 2:} \( p = 6k + 5 \): This can be rewritten as \( p = 6(k + 1) - 1 \), showing that \( p \) is \( 1 \) less than a multiple of \( 6 \).
+\end{itemize}
+
+Thus, any prime \( p > 3 \) is either \( 1 \) more or \( 1 \) less than a multiple of \( 6 \). Additionally, since $6 = 3 \cdot 2$ is a multiple of $3$, this argument also holds for any multiple of $3$, completing the proof.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.41.}
+\textbf{Task:} After defining a prime number, Definition 2.16 stated that an integer $n \geq 2$ being not prime was equivalent to $n$ being able to be written as $n=st$, where $s$ and $t$ are integers and $1 < s,t < n$. Prove that these are indeed equivalent. That is, prove that if $n \geq 2$ is not prime, then $n=st$ for some integers $s$ and $t$ where $1 < s,t < n$. And then prove that if $n=st$ for some integers $s$ and $t$ where $1 < s,t < n$, then $n$ is not prime.
+
+
+\subsubsection*{Solution}
+
+\begin{proof}
+    To prove the equivalence, we need to show both directions:\\
+
+    \noindent \underline{\textbf{Part 1:} If $n \geq 2$ is not prime, then $n=st$, where $s$ and $t$ are integers and $1 < s,t < n$.}
+
+    Suppose $n \geq 2$ is not prime. By Definition 2.16, this is equivalent to $t\mid n$ for an integer $t$, where $n > t > 1$. This implies, by Definition 2.14, $n=st$ for some integer $s$. Since $n > t > 1$ and $n=st$, also $n > s > 1$.\\
+
+    \noindent \underline{\textbf{Part 2:} If $n=st$, where $s$ and $t$ are integers and $1 < s,t < n$, then $n \geq 2$ is not prime.}
+
+    Suppose $n=st$, where $s$ and $t$ are integers and $1 < s,t < n$. Definition 2.14 tells us that this is equivalent to $t\mid n$. Since $1 < t < n$, $n$ is divided by a number greater than 1, which is not itself.  This means it is not prime and greater or equal to 2.\\
+    
+    Thus, we have shown that $n$ being able to be written as $n=st$, where $s$ and $t$ are integers and $1 < s,t < n$ and $n \geq 2$ being not prime are equivalent. This completes the proof.
+\end{proof}
+
+\newpage
+
+\subsection{Exercise 2.42.}
+\textbf{Task:} Read the \textit{Introduction to Number Theory} following this chapter. Then, encrypt your first name using the RSA algorithm, and then show how to decrypt it. Show every step of your procedure, including what you used for your encryption key, what your numerical message is, and every calculation along the way.
+
+\subsubsection*{Solution}
+
+In this example of encryption and decryption using the RSA algorithm, I will use my first name "jannes".\\
+
+1. First, I pick two small prime numbers \( p \) and \( q \), and let \( N \) be their product:
+
+   \[
+   p = 5, \quad q = 17, \quad N = pq = 85
+   \]
+
+2. Now, I compute \( \text{totient}(N) \): If \( N = pq \), then \( \text{totient}(N) = (p-1)(q-1) \).
+
+   \[
+   \text{totient}(N) = (5-1)(17-1) = 4 \cdot 16 = 64
+   \]
+
+3. Choose any number \( t \) in \( \{2,3,\dots,\text{totient}(N)\} \) that is relatively prime to \( N \) \textit{and} \( \text{totient}(N) \); this will always be possible. I choose:
+
+   \[
+   t := 7
+   \]
+
+4. The numbers in Steps 3 and 1 give the encryption key: \( (t, N) \).
+
+   \[
+   \text{The encryption key is } (7, 85)
+   \]
+
+5. Choose the smallest \( d \) in \( \{1,2,3,\dots,\text{totient}(N)\} \) such that \( t \cdot d \equiv 1 \pmod{\text{totient}(N)} \). Using the extended Euclidean algorithm:
+
+   \[
+   d = 55, \quad t \cdot d = 7 \cdot 55 = 385 \equiv 1 \pmod{64}
+   \]
+
+6. The numbers in Steps 5 and 1 give the decryption key: \( (d, N) \).
+
+   \[
+   \text{The decryption key is } (55, 85)
+   \]
+
+It is important to note that finding totient($N$) is extremely difficult if $p$ and $q$ are large prime numbers. Since $N = p \cdot q$, this results in a very large number that is the product of two primes. To calculate totient($N$), one would need to factorize $N$ into $p$ and $q$. However, for sufficiently large prime numbers, factorizing $N$ is computationally infeasible with current technology and algorithms.
+
+On the next page, you find the steps for encryption and decryption:
+
+
+   \newpage
+
+\subsubsection*{Encryption}
+
+Each letter of my name is converted to a number (e.g., \( \text{j} = 10, \text{a} = 1, \text{n} = 14, \text{e} = 4, \text{s} = 19 \)), then encrypted using \( c = m^t \pmod{N} \), where \( m \) is the numeric value of the letter.
+
+\[
+\begin{aligned}
+\text{j} &\implies 10 \implies 10^7 \pmod{85} = 15 \\
+\text{a} &\implies 1 \implies 1^7 \pmod{85} = 1 \\
+\text{n} &\implies 14 \implies 14^7 \pmod{85} = 49 \\
+\text{n} &\implies 14 \implies 14^7 \pmod{85} = 49 \\
+\text{e} &\implies 4 \implies 4^7 \pmod{85} = 79 \\
+\text{s} &\implies 19 \implies 19^7 \pmod{85} = 51 \\
+\end{aligned}
+\]
+
+The encrypted message is: \( 15, 1, 49, 49, 79, 51 \).
+
+\subsubsection*{Decryption}
+
+Each encrypted value \( c \) is decrypted using \( m = c^d \pmod{N} \), where \( d = 55 \).
+
+\[
+\begin{aligned}
+15 &\implies 15^{55} \pmod{85} = 10 \implies \text{j} \\
+1 &\implies 1^{55} \pmod{85} = 1 \implies \text{a} \\
+49 &\implies 49^{55} \pmod{85} = 14 \implies \text{n} \\
+49 &\implies 49^{55} \pmod{85} = 14 \implies \text{n} \\
+79 &\implies 79^{55} \pmod{85} = 4 \implies \text{e} \\
+51 &\implies 51^{55} \pmod{85} = 19 \implies \text{s} \\
+\end{aligned}
+\]
+
+The decrypted message is: "jannes".
+
+This demonstrates the RSA encryption and decryption process with every step calculated explicitly. 
+
+\newpage
+
+\section{Chapter 3: Sets}
 
 \end{document}
