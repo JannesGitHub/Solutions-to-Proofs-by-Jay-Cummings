@@ -1,2 +1,2 @@
 # Solutions-to-Proofs-by-Jay-Cummings
-Solutions to the exercises from the book Proofs by Jay Cummings, written in LaTeX. This repository is a work in progress and will be continuously updated.
+Solutions to the exercises from the book Proofs by Jay Cummings, written in LaTeX. I've stopped after chapter 2, because it wasn't worth the effort anymore, because I often had the solution after maybe 5 minutes and the LaTeX part would always take me 30 min...
